@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class DefaultTable extends Component {
+class DefaultTableEmpty extends Component {
 
     render() {
         const {viewList} = this.props
@@ -15,14 +15,7 @@ class DefaultTable extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-md-2">
-                                    <button className="btn btn-outline-success btn-sm mr-1"
-                                            onClick={() => this.props.completed(item.id)}>
-                                        <i className="fas fa-check fa-xs"/>
-                                    </button>
-                                </div>
-                                <div className="col-md-6">
-
+                                <div className="col-md-8">
                                     <h3>
                                         <a href={item.id}
                                            className="list-group-item list-group-item-action disabled text-uppercase"
@@ -32,15 +25,10 @@ class DefaultTable extends Component {
                                     <p className="text-lowercase text-monospace text-muted">{item.description}</p>
                                 </div>
                                 <div className="col-md-4">
-                                    <button className="btn btn-outline-primary btn-sm mr-1"
-                                            onClick={() => this.props.updated(item.id)}>
-                                        <i className="fas fa-pen fa-xs"/>
-                                    </button>
-                                    <button className="btn btn-outline-danger btn-sm"
-                                            onClick={() => this.props.excluded(item.id)}>
-                                        <i className="fas fa-trash fa-xs"/>
-                                    </button>
-
+                                    {item.completed_at == null?
+                                        <label>{item.deadline}</label>
+                                    :  <label>TAREFA COMPLETA</label>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -51,4 +39,4 @@ class DefaultTable extends Component {
     }
 }
 
-export default DefaultTable;
+export default DefaultTableEmpty;

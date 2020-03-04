@@ -7,6 +7,7 @@ from tasks import views
 
 router = routers.DefaultRouter()
 router.register(r'tasks', views.TaskViewSet)
+router.register(r'tasksNotCompleted', views.TasksNotCompletedViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
